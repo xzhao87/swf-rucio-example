@@ -50,7 +50,7 @@ pip install -e .
 # Or install with development and test dependencies
 pip install -e ".[dev,test]"
 
-# Set up Rucio environment using provided script
+# Set up Rucio environment using provided script (make necessary changes to fit in your environment)
 source setup_rucio_env.sh
 ```
 
