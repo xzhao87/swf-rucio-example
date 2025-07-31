@@ -1,0 +1,25 @@
+# Requirements for Rucio Workflow Package
+
+# Core dependencies
+rucio-clients>=1.28.0
+
+# Optional dependencies for enhanced functionality
+requests>=2.25.0
+urllib3>=1.26.0
+
+# Development and testing dependencies (optional)
+pytest>=6.0.0
+pytest-mock>=3.6.0
+mock>=4.0.0
+
+# Logging and monitoring (included in standard library)
+# logging
+# json
+# time
+# uuid
+
+# Configuration management (included in standard library)  
+# os
+# dataclasses (Python 3.7+)
+# typing (Python 3.5+)
+
