@@ -44,13 +44,17 @@ The Rucio Workflow package provides a high-level interface for common Rucio oper
 git clone https://github.com/xzhao87/swf-rucio-example.git
 cd swf-rucio-example
 
+# create a virtual env 
+python3 -m venv venv
+source venv/bin/activate
+
 # Install the package
 pip install -e .
 
 # Or install with development and test dependencies
 pip install -e ".[dev,test]"
 
-# Set up Rucio environment using provided script (make necessary changes to fit in your environment)
+# Set up Rucio environment using provided script
 source setup_rucio_env.sh
 ```
 
