@@ -12,7 +12,7 @@ This package provides:
 """
 
 from .dataset_manager import DatasetManager
-from .file_manager import FileManager
+from .file_manager import FileManager,FileInfo
 from .workflow_orchestrator import WorkflowOrchestrator
 from .utils import RucioUtils, ValidationUtils
 from .exceptions import (
@@ -27,7 +27,8 @@ __author__ = "Xin Zhao"
 
 __all__ = [
     "DatasetManager",
-    "FileManager", 
+    "FileManager",
+    "FileInfo",
     "WorkflowOrchestrator",
     "RucioUtils",
     "ValidationUtils",
