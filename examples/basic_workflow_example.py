@@ -5,7 +5,7 @@ dataset_manager = DatasetManager()
 file_manager = FileManager()
 
 # 1. Create a new dataset
-dataset_name = "user.xzhao:user.xzhao.swftest.dataset_3"
+dataset_name = "<scope name>:<file name>"
 result = dataset_manager.create_dataset(dataset_name=dataset_name)
 print(f"Created dataset: {result['duid']}")
 
@@ -15,15 +15,15 @@ print(f"Dataset state: {metadata['state']}")
 
 # 2. Register an existing file
 file_info = FileInfo(
-    lfn="sample_10KB_file_3",
-    pfn="root://dcintdoor.sdcc.bnl.gov:1094/pnfs/sdcc.bnl.gov/eic/epic/disk/swfdaqtest/xintestdir/sample_10KB_file_3",
+    lfn="<logical file name>",
+    pfn="root://test.com:1094/testpath/testdir/<logical file name>",
     size=10240,
     checksum="ad:28000001",
-    scope="user.xzhao"
+    scope="<scope name>"
 )
 
 # Register the file replica
-success = file_manager.register_file_replica(file_info, "DAQ_DISK_3")
+success = file_manager.register_file_replica(file_info, "TEST_RSE")
 print(f"File registered: {success}")
 
 # 3. Attach file to the open dataset
