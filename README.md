@@ -87,7 +87,7 @@ cat > existing_file.json << 'EOF'
 [
   {
     "lfn": "my_analysis_output.root",
-    "pfn": "root://dcintdoor.sdcc.bnl.gov:1094//pnfs/sdcc.bnl.gov/eic/epic/disk/xintestdir/my_analysis_output.root",
+    "pfn": "root://test.com:1094//testpath/testdir/my_analysis_output.root",
     "size": 10485760,
     "checksum": "ad:deadbeef12345678",
     "scope": "user.yourusername"
@@ -96,7 +96,7 @@ cat > existing_file.json << 'EOF'
 EOF
 
 # Register the existing file
-rucio-workflow register-files --rse BNL_PROD_DISK_1 --file-list existing_file.json --verbose
+rucio-workflow register-files --rse TEST_RSE --file-list existing_file.json --verbose
 ```
 
 #### 3. Attach File to Open Dataset
@@ -196,14 +196,14 @@ print(f"Dataset state: {result['state']}")
 # 2. Register an existing file
 file_info = FileInfo(
     lfn="my_analysis_output.root",
-    pfn="root://dcintdoor.sdcc.bnl.gov:1094//pnfs/sdcc.bnl.gov/eic/epic/disk/xintestdir/my_analysis_output.root",
+    pfn="root://test.com:1094//testpath/testdir/my_analysis_output.root",
     size=10485760,  # 10MB
     checksum="ad:deadbeef12345678",
     scope="user.yourusername"
 )
 
 # Register the file replica
-success = file_manager.register_file_replica(file_info, "BNL_PROD_DISK_1")
+success = file_manager.register_file_replica(file_info, "DAQ_DISK_3")
 print(f"File registered: {success}")
 
 # 3. Attach file to the open dataset
@@ -260,7 +260,7 @@ def process_multiple_files():
     # Register all files
     registration_results = []
     for file_info in existing_files:
-        success = file_manager.register_file_replica(file_info, "BNL_PROD_DISK_1")
+        success = file_manager.register_file_replica(file_info, "DAQ_DISK_3")
         registration_results.append(success)
         print(f"Registered {file_info.lfn}: {success}")
     
@@ -342,7 +342,7 @@ def robust_dataset_workflow():
         )
         
         try:
-            success = file_manager.register_file_replica(file_info, "BNL_PROD_DISK_1")
+            success = file_manager.register_file_replica(file_info, "DAQ_DISK_3")
             if success:
                 logger.info("File registered successfully")
             else:
@@ -393,7 +393,7 @@ export X509_USER_KEY=/path/to/key.pem
 export X509_CERT_DIR=/etc/grid-security/certificates
 
 # Workflow defaults
-export RUCIO_DEFAULT_RSE=BNL_DISK
+export RUCIO_DEFAULT_RSE=TEST_RSE
 export RUCIO_DEFAULT_SCOPE=user.yourusername
 
 # Performance tuning
@@ -426,6 +426,6 @@ else:
 
 ---
 
-**Version**: 1.0.0-beta  
+**Version**: 0.1.0  
 **License**: Apache License 2.0  
 **Author**: Xin Zhao (xzhao@bnl.gov)
