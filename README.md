@@ -114,20 +114,23 @@ rucio-workflow close-dataset user.yourusername:analysis.dataset.2025 --verbose
 ### Additional Command Examples
 
 #### Multiple File Registration
+
+(The following examples use fake files and RSE names, please make necessary changes if you want to run a real test)
+
 ```bash
 # Create a file list for multiple files
 cat > multiple_files.json << 'EOF'
 [
   {
     "lfn": "data_file_001.root",
-    "pfn": "root://dcintdoor.sdcc.bnl.gov:1094//pnfs/sdcc.bnl.gov/data/data_file_001.root",
+    "pfn": "root://test.com:1094//testpath/data/data_file_001.root",
     "size": 2048576,
     "checksum": "ad:a1b2c3d4e5f6",
     "scope": "user.yourusername"
   },
   {
     "lfn": "data_file_002.root", 
-    "pfn": "root://dcintdoor.sdcc.bnl.gov:1094//pnfs/sdcc.bnl.gov/data/data_file_002.root",
+    "pfn": "root://test.com:1094//testpath/data/data_file_002.root",
     "size": 1048576,
     "checksum": "ad:e5f6g7h8i9j0",
     "scope": "user.yourusername"
@@ -136,7 +139,7 @@ cat > multiple_files.json << 'EOF'
 EOF
 
 # Register multiple files at once
-rucio-workflow register-files --rse BNL_PROD_DISK_1 --file-list multiple_files.json --verbose
+rucio-workflow register-files --rse TEST_RSE --file-list multiple_files.json --verbose
 ```
 
 #### Check Dataset Status
