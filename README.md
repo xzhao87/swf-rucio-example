@@ -191,7 +191,10 @@ result = dataset_manager.create_dataset(
     lifetime_days=60
 )
 print(f"Created dataset: {result['duid']}")
-print(f"Dataset state: {result['state']}")
+
+# Get dataset metadata to check state
+metadata = dataset_manager.get_dataset_metadata(dataset_name)
+print(f"Dataset state: {metadata['state']}")
 
 # 2. Register an existing file
 file_info = FileInfo(
