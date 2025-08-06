@@ -426,6 +426,6 @@ else:
 
 ---
 
-**Version**: 1.0.0  
+**Version**: 1.0.0-beta  
 **License**: Apache License 2.0  
 **Author**: Xin Zhao (xzhao@bnl.gov)
