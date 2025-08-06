@@ -156,6 +156,20 @@ rucio get-metadata user.yourusername:analysis.dataset.2025
 
 ## Python API Examples
 
+### Set up the environment 
+
+To use the APIs without installing the whole package, follow the following steps 
+
+```bash
+# add rucio client into your environment, e.g.  
+source rucio client setup file from cvmfs
+
+# set up relevant environment variables pointing to your rucio instance, refer to the setup_rucio_env.sh file 
+
+# make sure swf-rucio-example package is in your PYTHONPATH 
+export PYTHONPATH=<path-to-the-swf-rucio-example>:$PYTHONPATH
+```
+
 ### Basic Workflow: Create Dataset → Register File → Attach File → Close Dataset
 
 ```python
